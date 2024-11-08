@@ -15,4 +15,6 @@ return{
     { "folke/which-key.nvim", event = "VeryLazy", init = function() vim.o.timeout = true vim.o.timeoutlen = 300 end, },
     { 'goolord/alpha-nvim', config = function () require'alpha'.setup(require'alpha.themes.dashboard'.config) end },
     { "nvim-telescope/telescope-frecency.nvim", config = function() require("telescope").load_extension "frecency" end, },
+    { 'MeanderingProgrammer/render-markdown.nvim', dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, },
+    { 'echasnovski/mini.icons', version = false },
 }
