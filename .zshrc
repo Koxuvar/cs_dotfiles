@@ -59,7 +59,6 @@ alias vim='nvim'
 
 #cmds
 alias grep='grep --color=auto'
-alias home='cd /mnt/c/Users/Connor/'
 alias cls='clear'
 
 #git
@@ -69,6 +68,8 @@ alias glone='git clone'
 alias gpush='git push'
 alias gpull='git pull'
 
+############ swaylock #############
+alias swlk='swaylock -f -C $HOME/.config/swaylock/config'
 ############ the fuck ############ 
 eval "$(thefuck --alias)"
 
@@ -76,6 +77,5 @@ eval "$(thefuck --alias)"
 LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
 
 ############ Startup ############ 
-neofetch | lolcat
+neofetch 
 
-home
