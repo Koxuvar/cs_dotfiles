@@ -51,6 +51,7 @@ require'lspconfig'.pylsp.setup({
   }
 })
 require'lspconfig'.eslint.setup{}
+require'lspconfig'.clangd.setup{}
 require'lspconfig'.lua_ls.setup {
   on_init = function(client)
     if client.workspace_folders then
