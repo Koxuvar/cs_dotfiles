@@ -2,4 +2,4 @@
 
 ---
 
-### very mucha GLWTS style dotsfile
+### very much a GLWTS style dotsfile
