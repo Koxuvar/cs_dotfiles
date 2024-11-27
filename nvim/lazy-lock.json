@@ -10,9 +10,9 @@
   "neo-tree.nvim": { "branch": "v3.x", "commit": "a77af2e764c5ed4038d27d1c463fa49cd4794e07" },
   "nui.nvim": { "branch": "main", "commit": "b58e2bfda5cea347c9d58b7f11cf3012c7b3953f" },
   "nvim-cmp": { "branch": "main", "commit": "ed31156aa2cc14e3bc066c59357cc91536a2bc01" },
-  "nvim-lspconfig": { "branch": "master", "commit": "27008519562f16453813c19dcc6ee97f505e0b1c" },
+  "nvim-lspconfig": { "branch": "master", "commit": "5d8288c794de811d41490ed6f616d6271e2c1c98" },
   "nvim-navic": { "branch": "master", "commit": "8649f694d3e76ee10c19255dece6411c29206a54" },
-  "nvim-treesitter": { "branch": "master", "commit": "d14bc4bd15a7b9b5a9e7977c6a28f2cab6c4ad4a" },
+  "nvim-treesitter": { "branch": "master", "commit": "28591731d84c2fc18ddda60e1d53da24c31c4987" },
   "nvim-web-devicons": { "branch": "master", "commit": "edbe0a65cfacbbfff6a4a1e98ddd60c28c560509" },
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
@@ -21,5 +21,5 @@
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "undotree": { "branch": "master", "commit": "78b5241191852ffa9bb5da5ff2ee033160798c3b" },
   "vim-fugitive": { "branch": "master", "commit": "320b18fba2a4f2fe3c8225c778c687e0d2620384" },
-  "which-key.nvim": { "branch": "main", "commit": "68e37e12913a66b60073906f5d3f14dee0de19f2" }
+  "which-key.nvim": { "branch": "main", "commit": "b9684c6ec54d8a8452bdcf0d613c7ad0223fc3fe" }
 }

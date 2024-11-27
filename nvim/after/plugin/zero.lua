@@ -51,7 +51,11 @@ require'lspconfig'.pylsp.setup({
   }
 })
 require'lspconfig'.eslint.setup{}
-require'lspconfig'.clangd.setup{}
+require'lspconfig'.clangd.setup{
+    init_options = {
+        fallbackFlags = {'--std=c++20'}
+  },
+}
 require'lspconfig'.lua_ls.setup {
   on_init = function(client)
     if client.workspace_folders then
