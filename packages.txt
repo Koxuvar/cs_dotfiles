@@ -21,4 +21,5 @@ waybar
 wofi
 yay
 yazi
+stufffff
 
