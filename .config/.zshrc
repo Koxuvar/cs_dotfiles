@@ -18,8 +18,11 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-if [[ $(grep -i Microsoft /proc/version) ]]; then
+if [[ $( uname -a | grep -i Microsoft ) ]]; then
     alias home='cd /mnt/c/Users/Connor/'
+    plaform='windows11'
+elif [[ $( uname -a | grep -i darwin ) ]]; then
+    platform='macos'
 fi
 
 export LANG=en_US.UTF-8
@@ -60,4 +63,6 @@ LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
 ############ Startup ############ 
 neofetch 
 
-home
+if [[ $platorm == 'windows11' ]]; then
+    home
+fi
