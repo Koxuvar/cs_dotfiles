@@ -1,4 +1,3 @@
---vim.cmd.colorscheme "catppuccin"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
