@@ -5,9 +5,9 @@ vim.opt.signcolumn = 'yes'
 -- This should be executed before you configure any language server
 local lspconfig_defaults = require('lspconfig').util.default_config
 lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-'force',
-lspconfig_defaults.capabilities,
-require('cmp_nvim_lsp').default_capabilities()
+    'force',
+    lspconfig_defaults.capabilities,
+    require('cmp_nvim_lsp').default_capabilities()
 )
 
 -- This is where you enable features that only work
@@ -33,11 +33,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- You'll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 -- These are example language servers. 
+
 require'lspconfig'.rust_analyzer.setup({
     on_attach = function(client, bufnr)
         vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
 })
+
 require'lspconfig'.pylsp.setup({
   settings = {
     pylsp = {
@@ -50,12 +52,51 @@ require'lspconfig'.pylsp.setup({
     }
   }
 })
-require'lspconfig'.eslint.setup{}
+
+require'lspconfig'.eslint.setup({
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+})
+
+require'lspconfig'.ts_ls.setup({
+    single_file_support = false,
+	settings = {
+		typescript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "literal",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = false,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+		javascript = {
+		    inlayHints = {
+	    	    includeInlayParameterNameHints = "all",
+    		    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+    		    includeInlayFunctionParameterTypeHints = true,
+    			includeInlayVariableTypeHints = true,
+    			includeInlayPropertyDeclarationTypeHints = true,
+    			includeInlayFunctionLikeReturnTypeHints = true,
+    			includeInlayEnumMemberValueHints = true,
+	    	},
+	    },
+    }
+})
+
+
 require'lspconfig'.clangd.setup{
     init_options = {
         fallbackFlags = {'--std=c++20'}
   },
 }
+
 require'lspconfig'.lua_ls.setup {
   on_init = function(client)
     if client.workspace_folders then
