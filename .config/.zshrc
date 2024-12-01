@@ -39,7 +39,9 @@ alias tconf='nvim ~/.config/tmux/tmux.conf'
 
 alias ls='ls -XC --color=auto'
 alias la='ls -ACX --color=auto'
+alias l='ls -lA --color=auto'
 alias vim='nvim'
+
 
 #cmds
 alias grep='grep --color=auto'
