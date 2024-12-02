@@ -65,6 +65,6 @@ LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
 ############ Startup ############ 
 neofetch 
 
-if [[ $platorm == 'windows11' ]]; then
+if [[ $platform == 'windows11' ]]; then
     home
 fi
