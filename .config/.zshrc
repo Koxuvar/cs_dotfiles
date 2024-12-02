@@ -20,7 +20,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 if [[ $( uname -a | grep -i Microsoft ) ]]; then
     alias home='cd /mnt/c/Users/Connor/'
-    plaform='windows11'
+    platform='windows11'
 elif [[ $( uname -a | grep -i darwin ) ]]; then
     platform='macos'
 fi
