@@ -36,7 +36,7 @@ fi
 alias zconf="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias tconf='nvim ~/.config/tmux/tmux.conf'
-alias fzf='cd $(find . -type d | fzf)'
+alias fcd='cd $(find . -type d | fzf)'
 
 alias ls='ls -XC --color=auto'
 alias la='ls -ACX --color=auto'
