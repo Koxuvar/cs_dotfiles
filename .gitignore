@@ -1,2 +1,3 @@
 plugins/
 *.log
+lazy-lock.lua
