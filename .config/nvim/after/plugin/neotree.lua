@@ -1,14 +1,14 @@
 local ntree = require('neo-tree')
 local ntreeExec = require('neo-tree.command')
 
-vim.keymap.set('n', '<leader>bf', function () ntreeExec.execute({toggle = "true", source = "filesystem"}) end)
-vim.keymap.set('n', '<leader>bb', function () ntreeExec.execute({toggle = "true", source = "buffers"}) end)
+vim.keymap.set('n', '<leader>bf', function() ntreeExec.execute({ toggle = "true", source = "filesystem" }) end)
+vim.keymap.set('n', '<leader>bb', function() ntreeExec.execute({ toggle = "true", source = "buffers" }) end)
 
 local function getTelescopeOpts(state, path)
     return {
         cwd = path,
         search_dirs = { path },
-        attach_mappings = function (prompt_bufnr, map)
+        attach_mappings = function(prompt_bufnr, map)
             local actions = require "telescope.actions"
             actions.select_default:replace(function()
                 actions.close(prompt_bufnr)
@@ -29,6 +29,12 @@ end
 
 ntree.setup({
     filesystem = {
+        filtered_items = {
+            hide_dotfiles = false,
+            always_show = {
+                ".config",
+            },
+        },
         window = {
             mappings = {
                 ["tf"] = "telescope_find",
@@ -55,10 +61,10 @@ ntree.setup({
         renderers = {
             file = {
                 { "icon" },
-                { "name", use_git_status_colors = true },
+                { "name",         use_git_status_colors = true },
                 { "harpoon_index" }, --> This is what actually adds the component in where you want it
                 { "diagnostics" },
-                { "git_status", highlight = "NeoTreeDimText" },
+                { "git_status",   highlight = "NeoTreeDimText" },
             },
         },
     },
@@ -75,4 +81,3 @@ ntree.setup({
         end,
     },
 })
-
