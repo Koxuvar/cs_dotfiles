@@ -20,7 +20,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 if [[ $( uname -a | grep -i Microsoft ) ]]; then
     alias home='cd /mnt/c/Users/Connor/'
-    plaform='windows11'
+    platform='windows11'
 elif [[ $( uname -a | grep -i darwin ) ]]; then
     platform='macos'
 fi
@@ -36,6 +36,7 @@ fi
 alias zconf="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias tconf='nvim ~/.config/tmux/tmux.conf'
+alias fcd='cd $(find . -type d | fzf)'
 
 alias ls='ls -XC --color=auto'
 alias la='ls -ACX --color=auto'
@@ -65,6 +66,6 @@ LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
 ############ Startup ############ 
 neofetch 
 
-if [[ $platorm == 'windows11' ]]; then
+if [[ $platform == 'windows11' ]]; then
     home
 fi
