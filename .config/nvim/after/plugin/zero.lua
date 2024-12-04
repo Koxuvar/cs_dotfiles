@@ -30,6 +30,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	end,
 })
 
+local toggle_lsp_client = function()
+  local buf = vim.api.nvim_get_current_buf()
+  local clients = vim.lsp.get_clients({ bufnr = buf })
+  if not vim.tbl_isempty(clients) then
+    vim.cmd("LspStop")
+  else
+    vim.cmd("LspStart")
+  end
+end
+
 -- You'll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 -- These are example language servers. 
@@ -89,6 +99,7 @@ require'lspconfig'.ts_ls.setup({
 	    },
     }
 })
+
 
 
 require'lspconfig'.clangd.setup{
