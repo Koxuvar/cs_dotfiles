@@ -48,12 +48,6 @@ alias vim='nvim'
 alias grep='grep --color=auto'
 alias cls='clear'
 
-#git
-alias gi='git init'
-alias gc='git commit -m'
-alias glone='git clone'
-alias gpush='git push'
-alias gpull='git pull'
 
 ############ swaylock #############
 alias swlk='swaylock -f -C $HOME/.config/swaylock/config'
