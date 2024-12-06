@@ -7,6 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster2"
 DISABLE_LS_COLORS="true"
 
+#plugins
 plugins=(
     git
     aliases
@@ -15,6 +16,7 @@ plugins=(
     zsh-syntax-highlighting
     )
 
+# check for omz updates
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -33,16 +35,23 @@ else
   export EDITOR='nvim'
 fi
 
+#configs
 alias zconf="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias tconf='nvim ~/.config/tmux/tmux.conf'
-alias fcd='cd $(find . -type d | fzf)'
 
+#shell stuff
 alias ls='ls -XC --color=auto'
 alias la='ls -ACX --color=auto'
 alias l='ls -lA --color=auto'
 alias vim='nvim'
+alias fcd='cd $(find . -type d | fzf)'
 
+#git
+alias ga='git add'
+alias gc='git commit -m'
+alias gpush='git push'
+alias gpull='git pull'
 
 #cmds
 alias grep='grep --color=auto'
