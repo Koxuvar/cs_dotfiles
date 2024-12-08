@@ -8,7 +8,9 @@ wk.add({
     {"<leader>ff", desc = "Find file", mode = "n"},
     {"<leader>fs", desc = "search with grep", mode = "n"},
     {"<leader>fr", desc = "Find file with frecency", mode = "n"},
-    {"<leader>u", desc = "Toggle undo tree", mode = "n"},
+    {"<leader>uu", desc = "Toggle undo tree", mode = "n"},
     {"<leader>bb", desc = "Toggle buffer tree", mode = "n"},
     {"<leader>bf", desc = "Toggle file tree", mode = "n"},
+    {"<leader>md", desc = "Render Markdown", mode = "n"},
+
 })
