@@ -1,8 +1,8 @@
-local ntree = require('neo-tree')
-local ntreeExec = require('neo-tree.command')
+local ntree = require("neo-tree")
+local ntreeExec = require("neo-tree.command")
 
-vim.keymap.set('n', '<leader>bf', function() ntreeExec.execute({ toggle = "true", source = "filesystem" }) end)
-vim.keymap.set('n', '<leader>bb', function() ntreeExec.execute({ toggle = "true", source = "buffers" }) end)
+vim.keymap.set("n", "<leader>bf", function() ntreeExec.execute({ toggle = "true", source = "filesystem" }) end)
+vim.keymap.set("n", "<leader>bb", function() ntreeExec.execute({ toggle = "true", source = "buffers" }) end)
 
 local function getTelescopeOpts(state, path)
     return {
@@ -72,12 +72,12 @@ ntree.setup({
         telescope_find = function(state)
             local node = state.tree:get_node()
             local path = node:get_id()
-            require('telescope.builtin').find_files(getTelescopeOpts(state, path))
+            require("telescope.builtin").find_files(getTelescopeOpts(state, path))
         end,
         telescope_grep = function(state)
             local node = state.tree:get_node()
             local path = node:get_id()
-            require('telescope.builtin').live_grep(getTelescopeOpts(state, path))
+            require("telescope.builtin").live_grep(getTelescopeOpts(state, path))
         end,
     },
 })

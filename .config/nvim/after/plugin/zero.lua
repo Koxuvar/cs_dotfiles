@@ -1,32 +1,32 @@
 -- Reserve a space in the gutter
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
-local lspconfig_defaults = require('lspconfig').util.default_config
+local lspconfig_defaults = require("lspconfig").util.default_config
 lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-    'force',
+    "force",
     lspconfig_defaults.capabilities,
-    require('cmp_nvim_lsp').default_capabilities()
+    require("cmp_nvim_lsp").default_capabilities()
 )
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file
-vim.api.nvim_create_autocmd('LspAttach', {
-	desc = 'LSP actions',
+vim.api.nvim_create_autocmd("LspAttach", {
+	desc = "LSP actions",
 	callback = function(event)
 		local opts = {buffer = event.buf}
 
-		vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-		vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-		vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-		vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-		vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-		vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-		vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-		vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-		vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-		vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+		vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+		vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+		vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
+		vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
+		vim.keymap.set("n", "go", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
+		vim.keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+		vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+		vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+		vim.keymap.set({"n", "x"}, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
+		vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 	end,
 })
 
@@ -40,22 +40,22 @@ local toggle_lsp_client = function()
   end
 end
 
--- You'll find a list of language servers here:
+-- You"ll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 -- These are example language servers. 
 
-require'lspconfig'.rust_analyzer.setup({
+require"lspconfig".rust_analyzer.setup({
     on_attach = function(client, bufnr)
         vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
 })
 
-require'lspconfig'.pylsp.setup({
+require"lspconfig".pylsp.setup({
   settings = {
     pylsp = {
       plugins = {
         pycodestyle = {
-          ignore = {'W391'},
+          ignore = {"W391"},
           maxLineLength = 100
         }
       }
@@ -63,7 +63,7 @@ require'lspconfig'.pylsp.setup({
   }
 })
 
-require'lspconfig'.eslint.setup({
+require"lspconfig".eslint.setup({
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,
@@ -72,7 +72,7 @@ require'lspconfig'.eslint.setup({
   end,
 })
 
-require'lspconfig'.ts_ls.setup({
+require"lspconfig".ts_ls.setup({
     single_file_support = false,
 	settings = {
 		typescript = {
@@ -102,26 +102,26 @@ require'lspconfig'.ts_ls.setup({
 
 
 
-require'lspconfig'.clangd.setup{
+require"lspconfig".clangd.setup{
     init_options = {
-        fallbackFlags = {'--std=c++20'}
+        fallbackFlags = {"--std=c++20"}
   },
 }
 
-require'lspconfig'.lua_ls.setup {
+require"lspconfig".lua_ls.setup {
   on_init = function(client)
     if client.workspace_folders then
       local path = client.workspace_folders[1].name
-      if vim.uv.fs_stat(path..'/.luarc.json') or vim.uv.fs_stat(path..'/.luarc.jsonc') then
+      if vim.uv.fs_stat(path.."/.luarc.json") or vim.uv.fs_stat(path.."/.luarc.jsonc") then
         return
       end
     end
 
-    client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+    client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
       runtime = {
-        -- Tell the language server which version of Lua you're using
+        -- Tell the language server which version of Lua you"re using
         -- (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT'
+        version = "LuaJIT"
       },
       -- Make the server aware of Neovim runtime files
       workspace = {
@@ -132,7 +132,7 @@ require'lspconfig'.lua_ls.setup {
           -- "${3rd}/luv/library"
           -- "${3rd}/busted/library",
         }
-        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower and will cause issues when working on your own configuration (see https://github.com/neovim/nvim-lspconfig/issues/3189)
+        -- or pull in all of "runtimepath". NOTE: this is a lot slower and will cause issues when working on your own configuration (see https://github.com/neovim/nvim-lspconfig/issues/3189)
         -- library = vim.api.nvim_get_runtime_file("", true)
       }
     })
@@ -142,11 +142,11 @@ require'lspconfig'.lua_ls.setup {
   }
 }
 
-local cmp = require('cmp')
+local cmp = require("cmp")
 
 cmp.setup({
 	sources = {
-		{name = 'nvim_lsp'},
+		{name = "nvim_lsp"},
 	},
 	snippet = {
 		expand = function(args)
@@ -155,17 +155,17 @@ cmp.setup({
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
-		['<C-p>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
-		['<C-n>'] = cmp.mapping.select_next_item({behavior = 'select'}),
+		["<C-p>"] = cmp.mapping.select_prev_item({behavior = "select"}),
+		["<C-n>"] = cmp.mapping.select_next_item({behavior = "select"}),
 
 		-- `Enter` key to confirm completion
-		['<CR>'] = cmp.mapping.confirm({select = false}),
+		["<CR>"] = cmp.mapping.confirm({select = false}),
 
 		-- Ctrl+Space to trigger completion menu
-		['<C-Space>'] = cmp.mapping.complete(),
+		["<C-Space>"] = cmp.mapping.complete(),
 
 		-- Scroll up and down in the completion documentation
-		['<C-u>'] = cmp.mapping.scroll_docs(-4),
-		['<C-d>'] = cmp.mapping.scroll_docs(4),
+		["<C-u>"] = cmp.mapping.scroll_docs(-4),
+		["<C-d>"] = cmp.mapping.scroll_docs(4),
 	}),
 })

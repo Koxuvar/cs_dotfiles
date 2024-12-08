@@ -1,4 +1,4 @@
-local wk = require('which-key')
+local wk = require("which-key")
 
 wk.add({
     {"<leader>kk", desc = "vim Ex", mode = "n"},
@@ -12,5 +12,4 @@ wk.add({
     {"<leader>bb", desc = "Toggle buffer tree", mode = "n"},
     {"<leader>bf", desc = "Toggle file tree", mode = "n"},
     {"<leader>md", desc = "Render Markdown", mode = "n"},
-
 })

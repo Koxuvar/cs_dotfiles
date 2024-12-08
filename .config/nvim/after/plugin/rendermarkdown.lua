@@ -1,7 +1,7 @@
-local md = require('render-markdown')
+local md = require("render-markdown")
 
 md.setup({
-    preset = 'none',
+    preset = "none",
     injections = {
         gitcommit = {
             enabled = true,
@@ -16,6 +16,6 @@ md.setup({
 })
 
 
-vim.keymap.set('n', '<leader>md', function() 
-    vim.cmd.RenderMarkdown 'toggle'
+vim.keymap.set("n", "<leader>md", function() 
+    vim.cmd.RenderMarkdown "toggle"
 end)
