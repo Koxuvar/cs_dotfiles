@@ -46,6 +46,7 @@ alias la='ls -ACX --color=auto'
 alias l='ls -lA --color=auto'
 alias vim='nvim'
 alias fcd='cd $(find . -type d | fzf)'
+alias lg='lazygit'
 
 #git
 alias ga='git add'
