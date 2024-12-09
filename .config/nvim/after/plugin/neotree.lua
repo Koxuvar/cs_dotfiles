@@ -48,7 +48,7 @@ ntree.setup({
                 local success, index = pcall(Marked.get_index_of, path)
                 if success and index and index > 0 then
                     return {
-                        text = string.format("%d ", index), -- <-- Add your favorite harpoon like arrow here
+                        text = string.format(" %d ", index), -- <-- Add your favorite harpoon like arrow here
                         highlight = config.highlight or "NeoTreeDirectoryIcon",
                     }
                 else
