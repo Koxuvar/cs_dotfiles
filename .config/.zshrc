@@ -64,6 +64,17 @@ alias swlk='swaylock -f -C $HOME/.config/swaylock/config'
 ############ the fuck ############ 
 eval "$(thefuck --alias)"
 
+############ yazi y Wrapper ############ 
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+
 ############ Color MGMT ############ 
 LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
 
