@@ -52,5 +52,8 @@ yabai -m rule --add label="System Settings" app="^System Settings$" manage=off
 yabai -m rule --add label="Lightroom" app="^Adobe Lightroom$" manage=off
 
 borders active_color=0xffCAD3F5 inactive_color=0xbb282E44 hidpi=on width=5.0 2>/dev/null 1>&2 &
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
 
 echo "yabai configuration loaded.."
