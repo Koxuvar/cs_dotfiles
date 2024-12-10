@@ -7,7 +7,7 @@ alt - f : yabai -m window --toggle float
 cmd + alt + ctrl + shift - n  : yabai -m window --toggle float&&yabai -m window --grid 12:12:1:1:10:10
 
 # enter fullscreen mode for the focused container
-cmd + alt + ctrl + shift - f : yabai -m window --toggle zoom-fullscreen
+alt + shift - f : yabai -m window --toggle zoom-fullscreen
 ####### Shortcut Hotkeys #############
 # cmd + alt + ctrl + shift = caps lock
 
