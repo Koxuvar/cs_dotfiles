@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 # the scripting-addition must be loaded manually if
 # you are running yabai on macOS Big Sur. Uncomment
 # the following line to have the injection performed
@@ -22,10 +22,18 @@ yabai -m config mouse_modifier              ctrl
 yabai -m config mouse_action1               move
 yabai -m config mouse_action2               resize
 yabai -m config mouse_drop_action           swap
-yabai -m config window_shadow               float
+yabai -m config window_shadow               on 
 yabai -m config window_opacity              on
-yabai -m config active_window_opacity       1 
+yabai -m config active_window_opacity       0.95 
 yabai -m config normal_window_opacity       0.85
+yabai -m config insert_feedback_color       0xffd75f5f
+
+
+yabai -m config window_border               on
+yabai -m config window_border_width         2
+yabai -m config active_window_border_color  "0xc6a0f6ff"
+yabai -m config normal_window_border_color  "0x8aadf4ff"
+
 
 # general space settings
 yabai -m config layout                      bsp
@@ -33,7 +41,7 @@ yabai -m config top_padding                 12
 yabai -m config bottom_padding              12
 yabai -m config left_padding                96
 yabai -m config right_padding               12
-yabai -m config window_gap                  12
+yabai -m config window_gap                  06
 
 yabai -m rule --add label="Finder" app="^Finder$" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
@@ -51,7 +59,6 @@ yabai -m rule --add label="Kap" app="^Kap$" manage=off
 yabai -m rule --add label="System Settings" app="^System Settings$" manage=off
 yabai -m rule --add label="Lightroom" app="^Adobe Lightroom$" manage=off
 
-borders active_color=0xffCAD3F5 inactive_color=0xbb282E44 hidpi=on width=5.0 2>/dev/null 1>&2 &
 yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
 yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
 yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
