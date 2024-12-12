@@ -18,7 +18,7 @@ cmd - 0x24 : kitty --single-instance -d ~
 alt + shift - r : killall yabai&&yabai --start-service&&skhd --reload
 
 # Rotate workspace clockwise
-cmd + alt + ctrl + shift -  : yabai -m space --rotate 90
+cmd + alt + ctrl + shift - r : yabai -m space --rotate 90
 
 # focus windows
 cmd + alt + ctrl + shift - q : yabai -m window --focus next || yabai -m window --focus first
