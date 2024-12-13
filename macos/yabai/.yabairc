@@ -59,4 +59,6 @@ yabai -m signal --add event=window_focused action="sketchybar --trigger window_f
 yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
 yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
 
+
+borders active_color=0xff04a5e5 inactive_color=0xff7287fd width=6.0 &
 echo "yabai configuration loaded.."
