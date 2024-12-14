@@ -84,3 +84,5 @@ neofetch
 if [[ $platform == 'windows11' ]]; then
     home
 fi
+
+eval "$(zoxide init zsh)"
