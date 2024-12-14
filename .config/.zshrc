@@ -86,3 +86,10 @@ if [[ $platform == 'windows11' ]]; then
 fi
 
 eval "$(zoxide init zsh)"
+
+if [ -f ~/.config/fzf/fzfrc ]; then
+    source ~/.config/fzf/fzfrc
+else
+    print "404: fzf config file not found."
+fi
+
