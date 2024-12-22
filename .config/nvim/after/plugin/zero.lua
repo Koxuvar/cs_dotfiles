@@ -1,3 +1,24 @@
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+
+require("mason-lspconfig").setup {
+    ensure_installed = { "lua_ls", "rust_analyzer" },
+}
+
+require("mason-lspconfig").setup_handlers {
+
+    function(server_name)
+        require("lspconfig")[server_name].setup {}
+    end
+}
+
 -- Reserve a space in the gutter
 vim.opt.signcolumn = "yes"
 
@@ -144,6 +165,8 @@ require "lspconfig".lua_ls.setup {
         Lua = {}
     }
 }
+
+require "lspconfig".htmx.setup({})
 
 local cmp = require("cmp")
 
