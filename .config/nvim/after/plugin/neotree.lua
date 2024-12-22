@@ -34,6 +34,10 @@ ntree.setup({
             always_show = {
                 ".config",
             },
+            hide_by_name= {
+                ".git",
+                "node_modules",
+            },
         },
         window = {
             mappings = {
