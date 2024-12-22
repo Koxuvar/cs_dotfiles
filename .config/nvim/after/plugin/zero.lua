@@ -40,6 +40,7 @@ local toggle_lsp_client = function()
   end
 end
 
+vim.keymap.set("n", "<leader>ls", toggle_lsp_client)
 -- You"ll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 -- These are example language servers. 

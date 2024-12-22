@@ -12,4 +12,5 @@ wk.add({
     {"<leader>bb", desc = "Toggle buffer tree", mode = "n"},
     {"<leader>bf", desc = "Toggle file tree", mode = "n"},
     {"<leader>md", desc = "Render Markdown", mode = "n"},
+    {"<leader>ls", desc = "Toggle Lang Server", mode = "n"},
 })
