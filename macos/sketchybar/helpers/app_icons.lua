@@ -207,6 +207,6 @@ return {
   ["Thunderbird"] = ":thunderbird:",
   ["Firefox"] = ":firefox:",
   ["WezTerm"] = ":wezterm:",
-  ["Zen"] = ":zen:",
+  ["Zen Browser"] = ":zen_browser:",
   ["default"] = ":default:",
 }
