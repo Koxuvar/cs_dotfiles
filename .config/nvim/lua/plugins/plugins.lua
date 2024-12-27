@@ -124,6 +124,12 @@ return {
         },
     },
     {
+        "supermaven-inc/supermaven-nvim",
+        config = function()
+            require("supermaven-nvim").setup({})
+        end,
+    },
+    {
         "folke/snacks.nvim",
         priority = 1000,
         lazy = false,
