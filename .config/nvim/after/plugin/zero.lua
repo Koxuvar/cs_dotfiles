@@ -132,6 +132,7 @@ require "lspconfig".clangd.setup {
 
 require "lspconfig".bashls.setup{{}}
 
+require "lspconfig".glint.setup {{}}
 require "lspconfig".lua_ls.setup {
     on_init = function(client)
         if client.workspace_folders then
