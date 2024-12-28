@@ -4,12 +4,8 @@ return {
         name = "catppuccin",
         priority = 1000,
     },
-    {
-        "nvim-treesitter/playground"
-    },
-    {
-        "ThePrimeagen/harpoon"
-    },
+    { "nvim-treesitter/playground" },
+    { "ThePrimeagen/harpoon" },
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.8",
@@ -133,9 +129,85 @@ return {
         'stevearc/dressing.nvim',
         opts = {},
     },
+    {'akinsho/toggleterm.nvim', version = "*", config = true},
+    {
+        "folke/edgy.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.opt.laststatus = 3
+            vim.opt.splitkeep = "screen"
+        end,
+        opts = {
+            bottom = {
+                -- toggleterm / lazyterm at the bottom with a height of 40% of the screen
+                {
+                    ft = "toggleterm",
+                    size = { height = 0.4 },
+                    -- exclude floating windows
+                    filter = function(buf, win)
+                        return vim.api.nvim_win_get_config(win).relative == ""
+                    end,
+                },
+                "Trouble",
+                { ft = "qf",            title = "QuickFix" },
+                {
+                    ft = "help",
+                    size = { height = 20 },
+                    -- only show help buffers
+                    filter = function(buf)
+                        return vim.bo[buf].buftype == "help"
+                    end,
+                },
+                { ft = "spectre_panel", size = { height = 0.4 } },
+            },
+            left = {
+                -- Neo-tree filesystem always takes half the screen height
+                {
+                    title = "Neo-Tree",
+                    ft = "neo-tree",
+                    filter = function(buf)
+                        return vim.b[buf].neo_tree_source == "filesystem"
+                    end,
+                    size = { height = 0.5 },
+                },
+                {
+                    title = "Neo-Tree Git",
+                    ft = "neo-tree",
+                    filter = function(buf)
+                        return vim.b[buf].neo_tree_source == "git_status"
+                    end,
+                    pinned = true,
+                    collapsed = true, -- show window as closed/collapsed on start
+                    open = "Neotree position=right git_status",
+                },
+                {
+                    title = "Neo-Tree Buffers",
+                    ft = "neo-tree",
+                    filter = function(buf)
+                        return vim.b[buf].neo_tree_source == "buffers"
+                    end,
+                    pinned = true,
+                    collapsed = true, -- show window as closed/collapsed on start
+                    open = "Neotree position=top buffers",
+                },
+                {
+                    title = function()
+                        local buf_name = vim.api.nvim_buf_get_name(0) or "[No Name]"
+                        return vim.fn.fnamemodify(buf_name, ":t")
+                    end,
+                    ft = "Outline",
+                    pinned = true,
+                    open = "SymbolsOutlineOpen",
+
+                },
+                -- any other neo-tree windows
+                "neo-tree",
+            },
+        },
+    },
     {
         "folke/trouble.nvim",
-        opts = {},     -- for default options, refer to the configuration section for custom setup.
+        opts = {}, -- for default options, refer to the configuration section for custom setup.
         cmd = "Trouble",
         keys = {
             {
@@ -215,6 +287,9 @@ return {
             },
             quickfile = { enabled = true },
             statuscolumn = { enabled = true },
+            scroll = { enabled = true },
+            indent = { enabled = true },
+            input = { enabled = true },
             words = { enabled = true },
             zen = { enabled = true },
             styles = {
@@ -239,7 +314,8 @@ return {
             { "<c-_>",      function() Snacks.terminal() end,                desc = "which_key_ignore" },
             { "]]",         function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",              mode = { "n", "t" } },
             { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",              mode = { "n", "t" } },
-            { "<leader>zn", function() Snacks.zen() end,                     desc = "Zen Mode" },
+            { "<leader>z",  function() Snacks.zen() end,                     desc = "Zen Mode" },
+            { "<leader>Z",  function() Snacks.zen.zoom() end,                desc = "Toggle Zoom" },
             {
                 "<leader>N",
                 desc = "Neovim News",
@@ -284,6 +360,8 @@ return {
                     Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map(
                         "<leader>ub")
                     Snacks.toggle.inlay_hints():map("<leader>uh")
+                    Snacks.toggle.dim():map("<leader>uD")
+                    Snacks.toggle.indent():map("<leader>ug")
                 end,
             })
         end,
