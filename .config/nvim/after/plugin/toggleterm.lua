@@ -3,7 +3,7 @@ require("toggleterm").setup {
     direction = 'horizontal',
     open_mapping = [[<c-\>]], -- or { [[<c-\>]], [[<c-¥>]] } if you also use a Japanese keyboard.
     hide_numbers = true,    -- hide the number column in toggleterm buffers
-    autochdir = false,      -- when neovim changes it current directory the terminal will change it's own when next it's opened
+    autochdir = true,      -- when neovim changes it current directory the terminal will change it's own when next it's opened
     start_in_insert = true,
     close_on_exit = true,   -- close the terminal window when the process exits
     shell = vim.o.shell,

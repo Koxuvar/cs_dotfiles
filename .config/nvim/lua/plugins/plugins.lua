@@ -142,7 +142,7 @@ return {
                 -- toggleterm / lazyterm at the bottom with a height of 40% of the screen
                 {
                     ft = "toggleterm",
-                    size = { height = 0.4 },
+                    size = { height = 0.2 },
                     -- exclude floating windows
                     filter = function(buf, win)
                         return vim.api.nvim_win_get_config(win).relative == ""
@@ -189,16 +189,6 @@ return {
                     pinned = true,
                     collapsed = true, -- show window as closed/collapsed on start
                     open = "Neotree position=top buffers",
-                },
-                {
-                    title = function()
-                        local buf_name = vim.api.nvim_buf_get_name(0) or "[No Name]"
-                        return vim.fn.fnamemodify(buf_name, ":t")
-                    end,
-                    ft = "Outline",
-                    pinned = true,
-                    open = "SymbolsOutlineOpen",
-
                 },
                 -- any other neo-tree windows
                 "neo-tree",
