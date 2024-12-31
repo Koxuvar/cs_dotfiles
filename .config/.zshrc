@@ -47,7 +47,7 @@ alias l='ls -lA --color=auto'
 alias vim='nvim'
 alias fcd='cd $(find . -type d | fzf)'
 alias lg='lazygit'
-alias fzf='fzf --tmux'
+#alias fzf='fzf --tmux'
 #git
 alias ga='git add'
 alias gc='git commit -m'

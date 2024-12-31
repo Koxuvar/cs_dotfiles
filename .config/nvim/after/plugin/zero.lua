@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(event)
         local opts = { buffer = event.buf }
 
-        vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+        -- vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
         vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
         vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
         vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
@@ -64,7 +64,9 @@ local toggle_lsp_client = function()
     end
 end
 
+
 vim.keymap.set("n", "<leader>ls", toggle_lsp_client)
+
 -- You"ll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 -- These are example language servers.
@@ -170,7 +172,6 @@ require "lspconfig".lua_ls.setup {
     }
 }
 
-require "lspconfig".htmx.setup({})
 
 local cmp = require("cmp")
 
