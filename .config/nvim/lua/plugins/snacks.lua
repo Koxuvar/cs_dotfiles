@@ -32,7 +32,11 @@ return
             indent = { enabled = true },
             input = { enabled = true },
             words = { enabled = true },
-            zen = { enabled = true },
+            zen = { enabled = true,
+                    toggles = {
+                        dim = false,
+                    }
+                },
             styles = {
                 notification = {
                     wo = { wrap = true } -- Wrap notifications
