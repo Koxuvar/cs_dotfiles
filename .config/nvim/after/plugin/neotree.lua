@@ -33,6 +33,7 @@ ntree.setup({
             hide_dotfiles = false,
             always_show = {
                 ".config",
+                ".env",
             },
             hide_by_name= {
                 ".git",

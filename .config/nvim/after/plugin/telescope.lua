@@ -10,6 +10,14 @@ vim.keymap.set("n", "<leader>en", function()
     }
 end)
 
+vim.keymap.set("n", "<leader>cn", function()
+    builtin. colorscheme{
+        enable_preview = true,
+    }
+end)
+
+
+
 vim.keymap.set("n", "<leader>fs", function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ")});
 end)

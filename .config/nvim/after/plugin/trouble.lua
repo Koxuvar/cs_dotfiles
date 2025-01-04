@@ -9,5 +9,5 @@ vim.keymap.set("n", "[d", function()
 end)
 
 vim.keymap.set("n", "]d", function()
-    require("trouble").previous({skip_groups=true, jump = true})
+    require("trouble").prev({skip_groups=true, jump = true})
 end)
