@@ -209,4 +209,5 @@ return {
   ["WezTerm"] = ":wezterm:",
   ["Zen Browser"] = ":zen_browser:",
   ["default"] = ":default:",
+  ["Ghostty"] = ":hyper:",
 }
