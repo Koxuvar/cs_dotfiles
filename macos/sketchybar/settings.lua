@@ -1,6 +1,6 @@
 return {
   paddings = 3,
-  group_paddings = 5,
+  group_paddings = 3,
 
   icons = "NerdFont", -- alternatively available: NerdFont
 
