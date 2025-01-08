@@ -3,6 +3,8 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cargo/bin:$PATH
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+source ~/.fzf.zsh
+
 #oh-my-zsh config options
 ZSH_THEME="agnoster2"
 DISABLE_LS_COLORS="true"

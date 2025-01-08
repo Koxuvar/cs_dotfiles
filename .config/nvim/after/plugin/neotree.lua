@@ -28,6 +28,12 @@ end
 
 
 ntree.setup({
+    close_if_last_window = true,
+    popup_border_style = "rounded",
+    window = {
+        position = "float",
+        width = 60,
+    },
     filesystem = {
         filtered_items = {
             hide_dotfiles = false,
