@@ -70,13 +70,11 @@ vim.keymap.set("n", "<leader>ls", toggle_lsp_client)
 -- You"ll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 -- These are example language servers.
-
 require "lspconfig".rust_analyzer.setup({
     on_attach = function(_, bufnr)
         vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
 })
-
 require "lspconfig".pylsp.setup({
     settings = {
         pylsp = {
@@ -89,16 +87,14 @@ require "lspconfig".pylsp.setup({
         }
     }
 })
-
-require "lspconfig".eslint.setup({
-    on_attach = function(_, bufnr)
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            command = "EslintFixAll",
-        })
-    end,
-})
-
+-- require "lspconfig".eslint.setup({
+--     on_attach = function(_, bufnr)
+--         vim.api.nvim_create_autocmd("BufWritePre", {
+--             buffer = bufnr,
+--             command = "EslintFixAll",
+--         })
+--     end,
+-- })
 require "lspconfig".ts_ls.setup({
     single_file_support = false,
     settings = {
@@ -107,7 +103,7 @@ require "lspconfig".ts_ls.setup({
                 includeInlayParameterNameHints = "literal",
                 includeInlayParameterNameHintsWhenArgumentMatchesName = false,
                 includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = false,
+                includeInlayVariableTypeHints = true,
                 includeInlayPropertyDeclarationTypeHints = true,
                 includeInlayFunctionLikeReturnTypeHints = true,
                 includeInlayEnumMemberValueHints = true,
@@ -126,17 +122,12 @@ require "lspconfig".ts_ls.setup({
         },
     }
 })
-
-
-
 require "lspconfig".clangd.setup {
     init_options = {
         fallbackFlags = { "--std=c++20" }
     },
 }
-
 require "lspconfig".bashls.setup{{}}
-
 require "lspconfig".glint.setup {{}}
 require "lspconfig".lua_ls.setup {
     on_init = function(client)
