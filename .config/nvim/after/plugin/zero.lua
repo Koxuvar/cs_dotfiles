@@ -87,6 +87,18 @@ require "lspconfig".pylsp.setup({
         }
     }
 })
+require "lspconfig".emmet_ls.setup({
+    capabilities = vim.lsp.protocol.make_client_capabilities(),
+        filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+        init_options = {
+          html = {
+            options = {
+              -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+              ["bem.enabled"] = true,
+            },
+          },
+        }
+})
 -- require "lspconfig".eslint.setup({
 --     on_attach = function(_, bufnr)
 --         vim.api.nvim_create_autocmd("BufWritePre", {
