@@ -3,7 +3,9 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cargo/bin:$PATH
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-source ~/.fzf.zsh
+eval "$(fzf --zsh)"
+# source ~/.fzf.zsh
+  
 
 #oh-my-zsh config options
 ZSH_THEME="agnoster2"
@@ -43,9 +45,11 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias tconf='nvim ~/.config/tmux/tmux.conf'
 
 #shell stuff
-alias ls='ls -XC --color=auto'
-alias la='ls -ACX --color=auto'
-alias l='ls -lA --color=auto'
+alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
+alias cd='z'
+# alias ls='ls -XC --color=auto'
+# alias la='ls -ACX --color=auto'
+# alias l='ls -lA --color=auto'
 alias vim='nvim'
 alias fcd='cd $(find . -type d | fzf)'
 alias lg='lazygit'
