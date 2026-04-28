@@ -1,7 +1,21 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>kk", vim.cmd.Ex)
 
+--qol move highlighted text up or down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set({"n", "t"}, "<leader>ft", vim.cmd.FloatTerm)
+-- moves f3 to conform.nvim instead of standard formatting
+vim.keymap.set({ "n", "x" }, "<F3>", function()
+    require("conform").format({ async = true, lsp_fallback = true })
+end)
+
+--fugitive mapping
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+
+-- removing new v0.12 maps for lsp stuff
+vim.keymap.del("n", "grr")
+vim.keymap.del("n", "gra")
+vim.keymap.del("n", "gri")
+vim.keymap.del("n", "grn")
+vim.keymap.del("n", "grt")
+vim.keymap.del("n", "grx")

@@ -1,10 +1,13 @@
-require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-  ensure_installed = { "javascript", "cpp", "rust", "python", "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "yaml", "typescript", "html", "css" },
-  sync_install = false,
-  auto_install = true,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
+require("nvim-treesitter").setup()
+
+vim.treesitter.language.register("markdown", "markdown")
+
+local parsers = {
+    "javascript", "cpp", "rust", "python", "c", "lua", "vim", 
+    "vimdoc", "query", "markdown", "markdown_inline", "yaml", 
+    "typescript", "html", "css", "tsx"
 }
+
+for _, parser in ipairs(parsers) do
+    vim.treesitter.language.add(parser)
+end

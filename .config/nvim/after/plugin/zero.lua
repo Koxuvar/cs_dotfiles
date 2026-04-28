@@ -9,14 +9,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "rust_analyzer" },
-}
-
-require("mason-lspconfig").setup_handlers {
-
-    function(server_name)
-        require("lspconfig")[server_name].setup {}
-    end
+    ensure_installed = { "lua_ls" },
 }
 
 -- Reserve a space in the gutter
@@ -49,7 +42,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "gr", builtin.lsp_references, opts)
         vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
         vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-        vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
+        -- vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
         vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
     end,
 })
@@ -70,12 +63,12 @@ vim.keymap.set("n", "<leader>ls", toggle_lsp_client)
 -- You"ll find a list of language servers here:
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 -- These are example language servers.
-require "lspconfig".rust_analyzer.setup({
-    on_attach = function(_, bufnr)
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-    end
-})
-require "lspconfig".pylsp.setup({
+-- vim.lsp.config('rust_analyzer', {
+--     on_attach = function(_, bufnr)
+--         vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+--     end
+-- })
+vim.lsp.config('pylsp', {
     settings = {
         pylsp = {
             plugins = {
@@ -87,28 +80,17 @@ require "lspconfig".pylsp.setup({
         }
     }
 })
-require "lspconfig".emmet_ls.setup({
-    capabilities = vim.lsp.protocol.make_client_capabilities(),
-        filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
-        init_options = {
-          html = {
-            options = {
-              -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-              ["bem.enabled"] = true,
-            },
-          },
-        }
+vim.lsp.config('emmet_language_server', {
+    filetypes = { "typescriptreact", "javascriptreact", "html", "css" },
+    init_options = {
+        showExpandedAbbreviation = "always",
+        showAbbreviationSuggestions = false,
+    },
 })
--- require "lspconfig".eslint.setup({
---     on_attach = function(_, bufnr)
---         vim.api.nvim_create_autocmd("BufWritePre", {
---             buffer = bufnr,
---             command = "EslintFixAll",
---         })
---     end,
--- })
-require "lspconfig".ts_ls.setup({
+vim.lsp.config('eslint', {})
+vim.lsp.config('ts_ls', {
     single_file_support = false,
+    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     settings = {
         typescript = {
             inlayHints = {
@@ -132,16 +114,20 @@ require "lspconfig".ts_ls.setup({
                 includeInlayEnumMemberValueHints = true,
             },
         },
-    }
+    },
+    on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+    end,
 })
-require "lspconfig".clangd.setup {
+vim.lsp.config('clangd', {
     init_options = {
         fallbackFlags = { "--std=c++20" }
     },
-}
-require "lspconfig".bashls.setup{{}}
-require "lspconfig".glint.setup {{}}
-require "lspconfig".lua_ls.setup {
+})
+vim.lsp.config('bashls', {})
+vim.lsp.config('json_ls', {})
+vim.lsp.config('lua_ls', {
     on_init = function(client)
         if client.workspace_folders then
             local path = client.workspace_folders[1].name
@@ -173,7 +159,7 @@ require "lspconfig".lua_ls.setup {
     settings = {
         Lua = {}
     }
-}
+})
 
 
 local cmp = require("cmp")

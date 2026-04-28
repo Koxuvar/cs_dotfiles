@@ -1,5 +1,8 @@
 return
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate"
-    }
+{
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    build = function()
+        require("nvim-treesitter").install(parsers)
+    end,
+}

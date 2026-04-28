@@ -1,2 +1,2 @@
-require("kxvr")
 require("config.lazy")
+require("kxvr")
