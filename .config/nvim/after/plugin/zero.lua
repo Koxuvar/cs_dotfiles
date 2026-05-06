@@ -127,6 +127,19 @@ vim.lsp.config('clangd', {
 })
 vim.lsp.config('bashls', {})
 vim.lsp.config('json_ls', {})
+vim.lsp.config('zls', {
+    on_attach = {
+        vim.lsp.inlay_hint.enable(true)
+    },
+    settings = {
+        zls = {
+            inlay_hints_show_variable_type_hints = true,
+            inlay_hints_hide_redundant_param_names = true,
+            inlay_hints_show_struct_literal_field_types = true,
+            enable_build_on_save = true,
+        }
+    }
+})
 vim.lsp.config('lua_ls', {
     on_init = function(client)
         if client.workspace_folders then
@@ -163,7 +176,12 @@ vim.lsp.config('lua_ls', {
 
 
 local cmp = require("cmp")
+local cmp_autopairs = require('nvim-autopairs.completion.cmp');
 
+cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+)
 cmp.setup({
     sources = {
         { name = "nvim_lsp" },
@@ -172,7 +190,7 @@ cmp.setup({
     snippet = {
         expand = function(args)
             -- You need Neovim v0.10 to use vim.snippet
-            vim.snippet.expand(args.body)
+            require('luasnip').lsp_expand(args.body)
         end,
     },
     mapping = cmp.mapping.preset.insert({
@@ -188,5 +206,23 @@ cmp.setup({
         -- Scroll up and down in the completion documentation
         ["<C-u>"] = cmp.mapping.scroll_docs(-4),
         ["<C-d>"] = cmp.mapping.scroll_docs(4),
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif require("luasnip").locally_jumpable(1) then
+                require("luasnip").jump(1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif require("luasnip").locally_jumpable(-1) then
+                require("luasnip").jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
     }),
 })
