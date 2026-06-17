@@ -88,6 +88,17 @@ vim.lsp.config('emmet_language_server', {
     },
 })
 vim.lsp.config('eslint', {})
+vim.lsp.config('gopls', {
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+            gofumpt = true,
+        },
+    },
+})
 vim.lsp.config('ts_ls', {
     single_file_support = false,
     filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
@@ -120,17 +131,13 @@ vim.lsp.config('ts_ls', {
         client.server_capabilities.documentRangeFormattingProvider = false
     end,
 })
-vim.lsp.config('clangd', {
-    init_options = {
-        fallbackFlags = { "--std=c++20" }
-    },
-})
+vim.lsp.config('clangd', {})
 vim.lsp.config('bashls', {})
 vim.lsp.config('json_ls', {})
 vim.lsp.config('zls', {
-    on_attach = {
-        vim.lsp.inlay_hint.enable(true)
-    },
+    on_attach = function(_, bufnr)
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    end,
     settings = {
         zls = {
             inlay_hints_show_variable_type_hints = true,
@@ -159,7 +166,8 @@ vim.lsp.config('lua_ls', {
             workspace = {
                 checkThirdParty = false,
                 library = {
-                    vim.env.VIMRUNTIME
+                    vim.env.VIMRUNTIME,
+                    "/home/connor/Documents/coding/lua/ma3-definitions",
                     -- Depending on the usage, you might want to add additional paths here.
                     -- "${3rd}/luv/library"
                     -- "${3rd}/busted/library",
@@ -169,19 +177,10 @@ vim.lsp.config('lua_ls', {
             }
         })
     end,
-    settings = {
-        Lua = {}
-    }
 })
 
 
 local cmp = require("cmp")
-local cmp_autopairs = require('nvim-autopairs.completion.cmp');
-
-cmp.event:on(
-    'confirm_done',
-    cmp_autopairs.on_confirm_done()
-)
 cmp.setup({
     sources = {
         { name = "nvim_lsp" },

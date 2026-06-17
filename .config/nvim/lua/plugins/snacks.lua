@@ -34,14 +34,14 @@ return
         picker = { enabled = true },
         words = { enabled = true },
         zen = {
-            enabled = true,
+            enabled = false,
             toggles = {
                 dim = false,
             }
         },
         styles = {
             notification = {
-                wo = { wrap = true }     -- Wrap notifications
+                wo = { wrap = true } -- Wrap notifications
             },
         },
     },
@@ -61,8 +61,8 @@ return
         { "<c-_>",      function() Snacks.terminal() end,                desc = "which_key_ignore" },
         { "]]",         function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",              mode = { "n", "t" } },
         { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",              mode = { "n", "t" } },
-        { "<leader>z",  function() Snacks.zen() end,                     desc = "Zen Mode" },
-        { "<leader>Z",  function() Snacks.zen.zoom() end,                desc = "Toggle Zoom" },
+        -- { "<leader>z",  function() Snacks.zen() end,                     desc = "Zen Mode" },
+        -- { "<leader>Z",  function() Snacks.zen.zoom() end,                desc = "Toggle Zoom" },
         {
             "<leader>N",
             desc = "Neovim News",
@@ -93,7 +93,7 @@ return
                 _G.bt = function()
                     Snacks.debug.backtrace()
                 end
-                vim.print = _G.dd     -- Override print to use snacks for `:=` command
+                vim.print = _G.dd -- Override print to use snacks for `:=` command
 
                 -- Create some toggle mappings
                 Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")

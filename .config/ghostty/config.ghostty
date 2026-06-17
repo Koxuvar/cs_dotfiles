@@ -1,0 +1,60 @@
+
+# ~/.config/ghostty/config
+
+# ─── Font ────────────────────────────────────────────────────────────────────
+font-family = JetBrainsMono
+font-size = 14
+
+# Disable ligatures — personal call; remove these lines if you want them
+font-feature = -calt
+font-feature = -liga
+
+# macOS only — makes text pop on retina displays
+font-thicken = true
+
+# ─── Theme ───────────────────────────────────────────────────────────────────
+theme = Gruvbox Material Dark
+
+# ─── Cursor ──────────────────────────────────────────────────────────────────
+cursor-style = block
+cursor-style-blink = false
+
+# ─── Window ──────────────────────────────────────────────────────────────────
+window-padding-x = 12
+window-padding-y = 8
+
+# Padding colour matches terminal background instead of leaving a bare strip
+window-padding-color = background
+
+# Remove native title bar decorations (macOS) — personal preference
+# window-decoration = false  # uncomment if you prefer borderless
+
+# ─── Scrollback ──────────────────────────────────────────────────────────────
+scrollback-limit = 10000
+
+# ─── Shell integration ───────────────────────────────────────────────────────
+# Enables cursor shape changes, working directory tracking, and prompt marks.
+# Requires a supported shell (zsh, bash, fish). Set to "false" to disable.
+shell-integration = detect
+shell-integration-features = cursor,title,sudo
+
+# ─── Mouse ───────────────────────────────────────────────────────────────────
+# Hide cursor while typing
+mouse-hide-while-typing = true
+
+# ─── Copy / Paste ────────────────────────────────────────────────────────────
+# Auto-copy selected text to clipboard (like most Linux terminals)
+copy-on-select = clipboard
+
+# Strip trailing whitespace when copying
+clipboard-trim-trailing-spaces = true
+
+# ─── URLs ────────────────────────────────────────────────────────────────────
+link-url = true
+
+# ─── Keybindings ─────────────────────────────────────────────────────────────
+# Clear scrollback + screen (like CMD+K in iTerm)
+keybind = cmd+k=clear_screen
+
+# Reload config without restart
+keybind = cmd+shift+r=reload_config

@@ -12,16 +12,8 @@ end)
 --fugitive mapping
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
--- removing new v0.12 maps for lsp stuff
--- vim.keymap.del("n", "grr")
--- vim.keymap.del("n", "gra")
--- vim.keymap.del("n", "gri")
--- vim.keymap.del("n", "grn")
--- vim.keymap.del("n", "grt")
--- vim.keymap.del("n", "grx")
-
 vim.keymap.set("i", "<C-l>", function()
-    local closers = { ")", "]", "}", "'", '"', "`" }
+    local closers = { ")", "]", "}", "'", '"', "`", "|" }
     local line = vim.api.nvim_get_current_line()
     local col = vim.api.nvim_win_get_cursor(0)[2]
     local next_char = line:sub(col + 1, col + 1)
@@ -29,3 +21,10 @@ vim.keymap.set("i", "<C-l>", function()
         vim.api.nvim_win_set_cursor(0, { vim.api.nvim_win_get_cursor(0)[1], col + 1 })
     end
 end, { desc = "Jump out of closing pair" })
+
+vim.keymap.set("n", "<leader>z", function()
+    vim.cmd("NoNeckPain")
+end
+)
+
+vim.keymap.set("n", "<C-q>", "<C-v>")

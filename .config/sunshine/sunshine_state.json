@@ -1,0 +1,22 @@
+{
+    "username": "sunshine",
+    "salt": "yCJq6&V)HzqeQZWB",
+    "password": "0BA0E5DEBA42CE91B039CDAB2E77588BC82694DB8A1360E737C916DE0A84AFA4",
+    "root": {
+        "uniqueid": "E5AB53D9-3132-D32E-9F13-CF81FC2A5F01",
+        "named_devices": [
+            {
+                "name": "Arch-Dev",
+                "cert": "-----BEGIN CERTIFICATE-----\nMIICvzCCAaegAwIBAgIBADANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDDBhOVklE\nSUEgR2FtZVN0cmVhbSBDbGllbnQwHhcNMjYwNjAxMDI0MDM3WhcNNDYwNTI3MDI0\nMDM3WjAjMSEwHwYDVQQDDBhOVklESUEgR2FtZVN0cmVhbSBDbGllbnQwggEiMA0G\nCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCvCJ7t0CVcIX3NYDQ7qDJ4jR984+dg\nTkn\/mTbsyqBr8+l0PN+KE5A2xEl3Ux63BC7xzBS4iqycuAAA6iVnEuItKe9E7EsX\nmf75AdA4TzWhD\/LISz7SjbhjRxIBuI2DQaYQZGsXx0ZoW+nkyXhl7pZdKr2d7pc7\n8XQsvl0Rqss8xSLsB8iOXcGth4R1TrSW0Qpb566B0KU9JAPHOQR4kIWsqQaqYVK+\nL3Th+koIeyb7PVia1u30JpxH+QEzh3UzXB4O5Dl0VBnKRC7G37qdfMuw1IGuSL9+\nWC3mxTqSk2+XDquJ5WtLbs\/NPQArwBRZfFUWr5lGtttD6OrRelFFUNB\/AgMBAAEw\nDQYJKoZIhvcNAQELBQADggEBAHW1BpGBBfyLBlPgjjbHt15XYrqAB9Sb75TfOCm8\nmvH6rS85X\/f9xpAh\/4pcTgWOfa0CIfCF8wvtSiCL6ug+Gwgo7Vy2ljmKjMlL9Nbs\ny9RxxnYQuCbXPLi\/6tEjdkWtHC1Llr75ECD9KXcZZWOW3SoG+8lO422TKyRvcKVp\nawwtIxzxfCMwC0KSRiBrlAu37Zl9TTSglp8kmvCSrrPMJjksSFDUjxbxRh1mVEwI\nDYQUedJ2xVGSQTiCTEIVApBCH5MPA8N+qUN3PM9bsLmjT0mvWQP7euN\/93M4kDjQ\nN0hMgIX4mD2wrvKKnZl95mobdvo77CDt\/3yY\/g+QQUXJUvs=\n-----END CERTIFICATE-----\n",
+                "uuid": "60319C7F-9D2D-4203-420C-C563E3EAC88F",
+                "enabled": "true"
+            },
+            {
+                "name": "Arch-dev",
+                "cert": "-----BEGIN CERTIFICATE-----\nMIICvzCCAaegAwIBAgIBADANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDDBhOVklE\nSUEgR2FtZVN0cmVhbSBDbGllbnQwHhcNMjYwNjA5MjExOTU4WhcNNDYwNjA0MjEx\nOTU4WjAjMSEwHwYDVQQDDBhOVklESUEgR2FtZVN0cmVhbSBDbGllbnQwggEiMA0G\nCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDFqMScy3xr87EQZGhg3S1CVS4L\/Hlu\nhITQiZnmMXEyfTxci9Esyrj5x0Guw\/XiGxCYBqqueHe9yykSlPaVQm8MVAHiYIky\nkSHbkY\/6EQ2EILzdBKrbo+CyCgcys6k89OBiR0ommwHoJbxPmePQUpWqvT9SWiD7\nP9PPUs3PT98+\/ioK2gnLtz0\/GIuHEqsdX9c\/qlmpj3au4IXXJl4Q\/Dv3dO8CgfKh\nC0isMfkoP1ubnsc27FIfqSWltUMD3RFY9QCOyzl74g6f\/3pDKOSGc7\/FCJ8+YtL6\nprve5kNA9CGtu05I8rR+yk1qsc1t8VmWkl6T\/0itQrSD+zc+IfpBzp+pAgMBAAEw\nDQYJKoZIhvcNAQELBQADggEBAJkV1KSPJbFC0CuKgWlPjsXIQyJZsjc9pP\/n2AiP\nLD9ybiTVru\/nKtbZCU2GZZbKpkRhLO5oWpbnHBdtt8E0b7NiJPYZ15Sx2Mk7VaKc\nv\/925OqxKoFcpxWlNzBrkZ7anP\/K4nHkDhkRrcerflX7FVvktcroB\/KtW\/mFWWAC\nWAYzNX00JOngAM+JoE4Jx+hRUSZtUFUVIlwT7PFtzWZA4iHLuVPQu7SZmA8T66i1\nKulW92yHcW0jmFpFPk4\/j5+XK+ey2L6YODGpuS9tVY4AGGs3AskLSg6CjQM\/hHWO\noubkKdGsmK\/GfDC6gMlqBL32PBMV231K2DYp9bx\/rW+9Puc=\n-----END CERTIFICATE-----\n",
+                "uuid": "E76B0F45-683C-202B-B190-AE99AD00D57E",
+                "enabled": "true"
+            }
+        ]
+    }
+}

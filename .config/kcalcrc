@@ -1,0 +1,15 @@
+[Colors]
+BackColor=0,0,0
+ConstantsButtonsColor=0,0,0
+ForeColor=170,170,170
+FunctionButtonsColor=0,0,0
+FunctionFontsColor=180,180,180
+HexButtonsColor=0,0,0
+MemoryButtonsColor=0,0,0
+NumberButtonsColor=0,0,0
+OperationButtonsColor=0,0,0
+StatButtonsColor=0,0,0
+StatFontsColor=180,180,180
+
+[General]
+CalculatorMode=science
